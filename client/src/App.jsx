@@ -4,7 +4,6 @@ import UserForm from './components/UserForm'
 import StreakDashboard from './components/StreakDashboard'
 import UserList from './components/UserList'
 import Questions from './components/Questions'
-import DarkModeToggle from './components/DarkModeToggle'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -17,13 +16,6 @@ const StreakDashboardWrapper = () => {
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
-  useEffect(() => {
-    // Check for dark mode preference on initial load
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
 
   const handleUserCreated = (user) => {
     setCurrentUser(user)
@@ -36,7 +28,7 @@ function App() {
   return (
     <Router>
       <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)' }} className="min-h-screen transition-colors duration-200">
-        {/* <DarkModeToggle /> */}
+        
         <h1 className="streak-header text-center mb-4" style={{ color: 'var(--text-color)' }}>Streak Tracker</h1>
         <div className="container-fluid">
           <div className="row">
